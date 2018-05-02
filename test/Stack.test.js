@@ -13,4 +13,18 @@ describe("Stack", () => {
     stack.push(42);
     expect(stack).toEqual(new Stack(1, 52, 10, 48, 42));
   });
+
+  it("should be able to indicate whether a stack is empty or not", () => {
+    const stack = new Stack();
+    expect(stack.isEmpty()).toEqual(true);
+    stack.push(1);
+    expect(stack.isEmpty()).toEqual(false);
+  });
+
+  it("should throw error when popping from an empty stack", () => {
+    const stack = new Stack();
+    expect(() => stack.pop()).toThrow(
+      new Error("Cannot pop from an empty stack")
+    );
+  });
 });
